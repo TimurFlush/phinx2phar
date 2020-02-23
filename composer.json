@@ -1,0 +1,12 @@
+{
+    "name": "timur-flush/phinx2phar",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Timur F.",
+            "email": "flush02@tutanota.com"
+        }
+    ],
+    "require": {}
+}
