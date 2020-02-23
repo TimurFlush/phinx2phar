@@ -1,5 +1,6 @@
 {
     "name": "timur-flush/phinx2phar",
+    "description": "Compilation of the Phinx library to Phar format",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -8,5 +9,25 @@
             "email": "flush02@tutanota.com"
         }
     ],
-    "require": {}
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "7.2.5"
+        }
+    },
+    "require": {
+        "php": "^7.2.5",
+        "ext-phar": "*",
+        "symfony/finder": "^5.0",
+        "symfony/process": "^5.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "TimurFlush\\PhinxToPhar\\": "./src/"
+        }
+    }
 }
