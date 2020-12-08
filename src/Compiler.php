@@ -123,6 +123,18 @@ class Compiler
             return stripos($file->__toString(), 'tests') === false;
         };
 
+        // templates
+        $finder = new Finder();
+        $finder->files()
+            ->ignoreVCS(true)
+            ->name('phinx.*.dist')
+            ->in($this->buildDir . '/data')
+            ->sort($finderSort);
+
+        foreach ($finder as $file) {
+            $this->addFile($phar, $file);
+        }
+
         // dependencies
         $finder = new Finder();
         $finder->files()
