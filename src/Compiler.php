@@ -123,7 +123,7 @@ class Compiler
             return stripos($file->__toString(), 'tests') === false;
         };
 
-        // templates
+        // config templates
         $finder = new Finder();
         $finder->files()
             ->ignoreVCS(true)
@@ -131,6 +131,18 @@ class Compiler
             ->in($this->buildDir . '/data')
             ->sort($finderSort);
 
+        foreach ($finder as $file) {
+            $this->addFile($phar, $file);
+        }
+
+        // migration template
+        $finder = new Finder();
+        $finder->files()
+            ->ignoreVCS(true)
+            ->name('Migration.template.php.dist')
+            ->in($this->buildDir . '/src/Phinx/Migration')
+            ->sort($finderSort);
+ 
         foreach ($finder as $file) {
             $this->addFile($phar, $file);
         }
